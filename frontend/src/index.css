@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-dark-border;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-luxury-gold/50 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-luxury-gold/70;
+  }
+}
+
+@layer components {
+  /* Luxury Button Styles */
+  .btn-primary {
+    @apply px-8 py-3 bg-gradient-to-r from-luxury-gold to-primary-600 
+           text-white font-semibold rounded-full 
+           hover:from-primary-600 hover:to-luxury-gold 
+           transition-all duration-300 transform hover:scale-105
+           shadow-lg hover:shadow-luxury-gold/25;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-luxury-gold text-luxury-gold 
+           font-semibold rounded-full 
+           hover:bg-luxury-gold hover:text-white 
+           transition-all duration-300;
+  }
+
+  .btn-ghost {
+    @apply px-6 py-2 text-gray-600 hover:text-gray-900 
+           hover:bg-gray-100 rounded-lg transition-all duration-200;
+  }
+
+  /* Card Styles - White Theme */
+  .card-luxury {
+    @apply bg-white border border-gray-200 rounded-2xl 
+           shadow-lg hover:shadow-xl hover:shadow-luxury-gold/10 
+           transition-all duration-300 overflow-hidden;
+  }
+
+  .card-glass {
+    @apply bg-white/80 backdrop-blur-xl border border-gray-200 
+           rounded-2xl shadow-xl;
+  }
+
+  /* Dark Card Variant */
+  .card-dark {
+    @apply bg-dark-card border border-dark-border rounded-2xl 
+           shadow-xl hover:shadow-2xl hover:shadow-luxury-gold/10 
+           transition-all duration-300 overflow-hidden;
+  }
+
+  /* Input Styles - White Theme */
+  .input-luxury {
+    @apply w-full px-4 py-3 bg-white border border-gray-300 
+           rounded-xl text-gray-900 placeholder-gray-400
+           focus:border-luxury-gold focus:ring-2 focus:ring-luxury-gold/20
+           transition-all duration-200 outline-none;
+  }
+
+  /* Dark Input Variant */
+  .input-dark {
+    @apply w-full px-4 py-3 bg-dark-card border border-dark-border 
+           rounded-xl text-white placeholder-white/40
+           focus:border-luxury-gold focus:ring-2 focus:ring-luxury-gold/20
+           transition-all duration-200 outline-none;
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-veg {
+    @apply bg-green-100 text-green-700 border border-green-300;
+  }
+
+  .badge-non-veg {
+    @apply bg-red-100 text-red-700 border border-red-300;
+  }
+
+  .badge-bestseller {
+    @apply bg-luxury-gold/20 text-luxury-gold border border-luxury-gold/30;
+  }
+
+  /* Navbar - White Theme */
+  .nav-link {
+    @apply relative text-gray-600 hover:text-luxury-gold font-medium 
+           transition-colors duration-200 py-2;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 
+           bg-luxury-gold transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Section Styles - White Theme */
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 max-w-2xl;
+  }
+
+  /* Animation Classes */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+
+  .animate-on-scroll.visible {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent 
+           bg-gradient-to-r from-luxury-gold via-primary-400 to-luxury-gold;
+  }
+
+  /* Overlay */
+  .overlay-dark {
+    @apply absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/90;
+  }
+
+  .overlay-light {
+    @apply absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/90;
+  }
+
+  /* Status Colors */
+  .status-available {
+    @apply text-green-600 bg-green-100 border-green-300;
+  }
+
+  .status-occupied {
+    @apply text-red-600 bg-red-100 border-red-300;
+  }
+
+  .status-reserved {
+    @apply text-yellow-600 bg-yellow-100 border-yellow-300;
+  }
+
+  /* Dark Theme Utility Classes */
+  .dark-section {
+    @apply bg-dark-bg text-white;
+  }
+
+  .dark-section .section-title {
+    @apply text-white;
+  }
+
+  .dark-section .section-subtitle {
+    @apply text-white/60;
+  }
+
+  .dark-section .nav-link {
+    @apply text-white/80 hover:text-white;
+  }
+
+  .dark-section .btn-ghost {
+    @apply text-white/80 hover:text-white hover:bg-white/10;
+  }
+
+  .dark-section .btn-secondary {
+    @apply hover:text-dark-bg;
+  }
+}
+
+@layer utilities {
+  /* Text Shadow */
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Glow Effects */
+  .glow-gold {
+    box-shadow: 0 0 30px rgba(201, 162, 39, 0.3);
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
